@@ -1,0 +1,46 @@
+{%  extends 'store/Main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+
+
+    <div class="col-lg-6">
+        <div class="box-element">
+
+
+
+
+
+            <hr>
+            <div class="cart-row">
+                <div style="flex:2"><img class="row-image" src="{{item.imageURL}}"></div>
+                <div style="flex:2"><p>{{item.name}}</p></div>
+                <div style="flex:1"><p>${{item.price|floatformat:2}}</p></div>
+
+            </div>
+        </div>
+    </div>
+    <hr />
+
+
+    <div class="col-md-6">
+        <div class="card card-body">
+
+
+            <p>Are you sure you want to delete "{{item.name}}"?</p>
+
+            <form action="{% url 'delete_order' item.id  %}" method="POST">
+
+                {% csrf_token %}
+                <a class="btn btn-warning" href="{% url 'product' %}">Cancel</a>
+
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

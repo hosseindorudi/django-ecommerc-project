@@ -1,0 +1,37 @@
+{%  extends 'store/Main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+
+
+    <div class="col-lg-12">
+        <div class="box-element">
+
+
+
+              
+
+                <div class="container">
+                    <h2>{{order.name}}</h2>
+                    <p>${{order.price|floatformat:2}}</p>
+                    <img class="img-responsive" src="{{order.imageURL}}" alt="Chania" width="460" height="345">
+
+
+                    <hr>
+
+                    <div style="flex:2"><img class="row-image" src="{{order.imageURL}}"></div>
+                    <div style="flex:2"><p>{{order.name}}</p></div>
+                    <div style="flex:1"><p>${{order.price|floatformat:2}}</p></div>
+
+
+                </div>
+        </div>
+    <hr />
+
+
+
+</div>
+
+{% endblock %}
